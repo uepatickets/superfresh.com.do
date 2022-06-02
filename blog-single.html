@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Single Post</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="fixed-bottom-btn">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign up</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar-->
+      <div id="header"></div>
+    
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container mt-5 mb-md-2 mb-lg-4 py-5">
+        <!-- Breadcrumb-->
+        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="city-guide-blog.html">Blog</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Air Travel in the Time of COVID-19</li>
+          </ol>
+        </nav>
+        <h1 class="h2 pb-3">Air Travel in the Time of COVID-19</h1><img class="rounded-3" src="img/city-guide/blog/single.jpg" alt="Post image">
+        <div class="row mt-4 pt-3">
+          <!-- Sidebar (offcanvas)-->
+          <aside class="col-lg-4">
+            <!-- Offcanvas-->
+            <div class="offcanvas offcanvas-start offcanvas-collapse pe-lg-3" id="blog-sidebar">
+              <div class="offcanvas-header shadow-sm mb-2">
+                <h3 class="h5 offcanvas-title">Sidebar</h3>
+                <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <!-- Search-->
+                <div class="position-relative mb-4">
+                  <input class="form-control pe-5" type="text" placeholder="Search article by keywords..."><i class="fi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                </div>
+                <!-- Author-->
+                <div class="card card-flush py-2 py-lg-0 mb-4">
+                  <div class="card-body d-flex align-items-start"><img class="me-3 rounded-circle" src="img/avatars/28.png" width="80" alt="Avatar">
+                    <div>
+                      <h4 class="h5 mb-2"><a class="nav-link stretched-link p-0 fw-bold" href="#">Bessie Cooper</a></h4><span class="d-block mb-3 fs-sm">Traveller, blogger</span>
+                      <div class="position-relative zindex-5 text-nowrap"><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle me-2 mb-2" href="#"><i class="fi-instagram"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Categories-->
+                <div class="card card-flush pb-2 pb-lg-0 mb-4">
+                  <div class="card-body">
+                    <h4 class="h5">Categories</h4>
+                    <div class="mb-n2"><a class="nav-link mb-2 p-0 fw-normal d-flex justify-content-between" href="#">Inspiration<span class="opacity-70">(2)</span></a><a class="nav-link mb-2 p-0 fw-normal d-flex justify-content-between" href="#">Transportation<span class="opacity-70">(4)</span></a><a class="nav-link mb-2 p-0 fw-normal d-flex justify-content-between" href="#">Lifestyle<span class="opacity-70">(5)</span></a><a class="nav-link mb-2 p-0 fw-normal d-flex justify-content-between" href="#">Entertainment<span class="opacity-70">(1)</span></a><a class="nav-link mb-2 p-0 fw-normal d-flex justify-content-between" href="#">Accomodation<span class="opacity-70">(8)</span></a></div>
+                  </div>
+                </div>
+                <!-- Tags-->
+                <div class="card card-flush pb-2 pb-lg-0 mb-4">
+                  <div class="card-body">
+                    <h4 class="h5">Popular Tags</h4>
+                    <div class="d-flex flex-wrap mb-n1">
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Trending</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Tutorial</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Places</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Urban</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Tips</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Travel</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Restaurants</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Subscribe-->
+                <div class="card card-flush mb-4">
+                  <div class="card-body">
+                    <h4 class="h5">Stay Informed</h4>
+                    <p class="fs-sm mb-3">Subscribe to our newsletter and be the first to see the latest news and advice.</p>
+                    <form class="form-group rounded-pill">
+                      <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i class="fi-mail"></i></span>
+                        <input class="form-control" type="email" placeholder="Your Email">
+                      </div>
+                      <button class="btn btn-primary btn-sm rounded-pill" type="button">Sign up</button>
+                    </form>
+                    <div class="form-text fs-xs pt-1">* By signing up you agree to our <a href='#'>Privacy Policy</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Post content-->
+          <div class="col-lg-8">
+            <!-- Post meta-->
+            <div class="d-flex flex-wrap border-bottom pb-3 mb-4"><a class="text-uppercase text-decoration-none border-end pe-3 me-3 mb-2" href="#">Travelling</a>
+              <div class="d-flex align-items-center border-end pe-3 me-3 mb-2"><i class="fi-calendar-alt opacity-70 me-2"></i><span>May 24</span></div>
+              <div class="d-flex align-items-center border-end pe-3 me-3 mb-2"><i class="fi-clock opacity-70 me-2"></i><span>8 min read</span></div><a class="nav-link-muted d-flex align-items-center mb-2" href="#"><i class="fi-chat-circle opacity-70 me-2"></i><span>3 comments</span></a>
+            </div>
+            <p class="fs-lg fw-bold text-dark mb-4">Feugiat eget gravida urna placerat posuere pulvinar. Id nibh hendrerit semper urna consequat. Mauris elit tellus risus ultricies ut consequat. Tempor tellus imperdiet nec velit fames pellentesque sed sed arcu. Neque quam id pellentesque in diam in.</p>
+            <p>Purus ornare nisl est nec. Nunc, enim tellus pretium viverra quisque id in metus volutpat. Urna eget velit venenatis, commodo eget massa. Magna donec dictum cras nullam platea. Diam rhoncus massa lectus pellentesque tristique. Amet commodo, egestas vitae bibendum. Volutpat elit condimentum integer tortor porttitor justo vel lobortis risus. Lacinia pellentesque fermentum tellus orci mauris, velit duis eget. Commodo justo, hac ligula molestie felis, iaculis. Vitae dui at ante orci, dictum fusce. Urna, sed urna fringilla faucibus euismod aliquet nec. Quis libero, fermentum amet eu, condimentum auctor. Sit vel ipsum sem tempus gravida et. Scelerisque blandit orci, est quis. Nisi, tellus amet est nascetur habitant faucibus ornare et vivamus.</p>
+            <p>Convallis massa nunc, tempus eget egestas sollicitudin mauris. Purus donec sed neque arcu, dictumst tortor nisi, odio. A sit lectus sem velit orci, rhoncus pharetra facilisis. Cras sodales a, dui pellentesque enim odio rutrum leo. Auctor viverra sit sit ut. Massa, elit venenatis, ultrices viverra at sagittis, velit. Cursus tempus phasellus consectetur suspendisse a blandit pellentesque diam neque. Massa est nibh congue elit amet, diam faucibus. Morbi non est semper ullamcorper quam iaculis at.</p>
+            <blockquote class="blockquote pb-2">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <footer class="fs-base">— Annette Black</footer>
+            </blockquote>
+            <p>Velit dignissim pharetra ut augue. Nunc felis neque non sagittis. Sodales eros suspendisse scelerisque varius neque elit elementum quis. Ut euismod id auctor donec consectetur massa. Sed vitae accumsan lorem pharetra dictum eget vestibulum. Non blandit viverra laoreet amet, maecenas auctor leo justo, sit. Vitae vulputate gravida est feugiat. Adipiscing tristique mauris, eu sit tortor. Velit in scelerisque sit tincidunt habitant urna nec. Justo, non massa metus convallis cursus lorem volutpat eu duis. Ipsum dolor feugiat est tristique.</p>
+            <p>Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue. Amet vel non aliquet habitasse. Egestas erat odio et, eleifend turpis etiam blandit interdum. Nec augue ut senectus quisque diam quis. At augue accumsan, in bibendum. A eget et, eget quisque egestas netus vel. Velit, aliquet turpis convallis ullamcorper. Scelerisque sagittis condimentum pretium in vitae etiam lacinia quis amet. Porttitor consequat, sollicitudin vivamus pharetra nibh faucibus neque, viverra. Praesent amet sed lacus vitae.</p>
+            <p>Velit parturient tellus tellus, congue pulvinar tellus viverra. In cum massa mattis ac. Amet vitae massa ut mi etiam. Auctor aliquam tristique felis donec eu sit nisi. Accumsan mauris eget convallis mattis sed etiam scelerisque.</p>
+            <!-- Tags + Sharing-->
+            <div class="pt-4">
+              <div class="d-md-flex align-items-center justify-content-between border-top pt-4">
+                <div class="d-flex align-items-center me-3 mb-3 mb-md-0">
+                  <div class="d-none d-sm-block fw-bold text-nowrap mb-2 me-2 pe-1">Tags:</div>
+                  <div class="d-flex flex-wrap"><a class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2" href="#">COVID-19</a><a class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal mb-2" href="#">Travel</a></div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="fw-bold text-nowrap pe-1 mb-2">Share:</div>
+                  <div class="d-flex"><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mb-2 ms-2" href="#" data-bs-toggle="tooltip" title="Share with Facebook"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mb-2 ms-2" href="#" data-bs-toggle="tooltip" title="Share with Twitter"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-light-primary btn-xs rounded-circle shadow-sm mb-2 ms-2" href="#" data-bs-toggle="tooltip" title="Share with LinkedIn"><i class="fi-linkedin"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Recent posts-->
+        <div class="pt-5 mt-md-4 mb-lg-2">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4 pb-2">
+            <h2 class="h3 mb-sm-0">You may be also interested in</h2><a class="btn btn-link fw-normal ms-sm-3 p-0" href="city-guide-blog.html">Go to blog<i class="fi-arrow-long-right ms-2"></i></a>
+          </div>
+          <!-- Carousel-->
+          <div class="tns-carousel-wrapper tns-nav-outside">
+            <div class="tns-carousel-inner d-block" data-carousel-options="{&quot;controls&quot;: false, &quot;gutter&quot;: 24, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;nav&quot;:true},&quot;500&quot;:{&quot;items&quot;:2},&quot;850&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}}}">
+              <!-- Item-->
+              <article><a class="d-block mb-3" href="city-guide-blog-single.html"><img class="rounded-3" src="img/city-guide/blog/12.jpg" alt="Post image"></a><a class="fs-xs text-uppercase text-decoration-none" href="#">Travelling</a>
+                <h3 class="fs-base pt-1"><a class="nav-link" href="city-guide-blog-single.html">10 Travel Mistakes to Avoid During Coronavirus</a></h3><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/16.png" width="44" alt="Avatar">
+                  <div class="ps-2">
+                    <h6 class="fs-sm text-nav lh-base mb-1">Bessie Cooper</h6>
+                    <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>May 24</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>No comments</span></div>
+                  </div></a>
+              </article>
+              <!-- Item-->
+              <article><a class="d-block mb-3" href="#"><img class="rounded-3" src="img/city-guide/blog/13.jpg" alt="Post image"></a><a class="fs-xs text-uppercase text-decoration-none" href="#">Inspiration</a>
+                <h3 class="fs-base pt-1"><a class="nav-link" href="city-guide-blog-single.html">10 World-Class Museums You Can Visit Online</a></h3><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/18.png" width="44" alt="Avatar">
+                  <div class="ps-2">
+                    <h6 class="fs-sm text-nav lh-base mb-1">Annette Black</h6>
+                    <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Apr 28</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>4 comments</span></div>
+                  </div></a>
+              </article>
+              <!-- Item-->
+              <article><a class="d-block mb-3" href="#"><img class="rounded-3" src="img/city-guide/blog/14.jpg" alt="Post image"></a><a class="fs-xs text-uppercase text-decoration-none" href="#">Entertainment</a>
+                <h3 class="fs-base pt-1"><a class="nav-link" href="#">7 Tips for Solo Travelers in Africa</a></h3><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/17.png" width="44" alt="Avatar">
+                  <div class="ps-2">
+                    <h6 class="fs-sm text-nav lh-base mb-1">Ralph Edwards</h6>
+                    <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Mar 15</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>2 comments</span></div>
+                  </div></a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer"></div>
+   
+    <!-- Filters sidebar toggle button (mobile)-->
+    <button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar"><i class="fi-sidebar-left me-2"></i>Sidebar</button>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="js/theme.render.js"></script>
+  </body>
+</html>

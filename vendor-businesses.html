@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | My Businesses</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Navbar-->
+      <div id="header"></div>
+    
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container mt-5 mb-md-4 py-5">
+        <!-- Breadcrumbs-->
+        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My businesses</li>
+          </ol>
+        </nav>
+        <!-- Page title + Sorting-->
+        <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch justify-content-between pb-4 mb-2 mb-md-3">
+          <h1 class="h2 mb-sm-0">My business</h1>
+          <div class="d-flex align-items-center ms-sm-4">
+            <label class="fs-sm me-2 pe-1 text-nowrap" for="sortby"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
+            <select class="form-select form-select-sm" id="sortby">
+              <option>Newest</option>
+              <option>Oldest</option>
+              <option>Popularity</option>
+              <option>High rating</option>
+              <option>Low rating</option>
+            </select>
+          </div>
+        </div>
+        <div class="card p-sm-4 border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <!-- Sidebar-->
+              <aside class="col-lg-3 col-md-4 mb-lg-0 mb-4 pb-2 pe-xl-5">
+                <ul class="nav flex-column mb-4 pb-lg-3">
+                  <li class="nav-item"><a class="nav-link py-1 px-0 fs-sm fw-normal" href="#"><i class="fi-bed mt-n1 me-2 fs-base align-middle opacity-70"></i>Accommodation<span class="float-end text-muted">(4)</span></a></li>
+                  <li class="nav-item"><a class="nav-link py-1 px-0 fs-sm fw-normal" href="#"><i class="fi-cafe mt-n1 me-2 fs-base align-middle opacity-70"></i>Food &amp; Drink<span class="float-end text-muted">(1)</span></a></li>
+                </ul><a class="btn btn-primary rounded-pill" href="city-guide-add-business.html"><i class="fi-plus me-2"></i>Add new business</a>
+              </aside>
+              <!-- Grid-->
+              <div class="col-lg-9 col-md-8">
+                <div class="row row-cols-md-2 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3 g-xl-4">
+                  <!-- Item-->
+                  <div class="col pb-2">
+                    <div class="position-relative">
+                      <div class="position-relative mb-3">
+                        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+                          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
+                            </li>
+                          </ul>
+                        </div><img class="rounded-3" src="img/city-guide/business/01.jpg" alt="Image">
+                      </div>
+                      <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Berlin Business Hotel</a></h3>
+                      <ul class="list-inline mb-0 fs-xs">
+                        <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(48)</span></li>
+                        <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                        <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4 km from center</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Item-->
+                  <div class="col pb-2">
+                    <div class="position-relative">
+                      <div class="position-relative mb-3">
+                        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+                          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu2">
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
+                            </li>
+                          </ul>
+                        </div><img class="rounded-3" src="img/city-guide/business/02.jpg" alt="Article img">
+                      </div>
+                      <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Big Tree Cottage</a></h3>
+                      <ul class="list-inline mb-0 fs-xs">
+                        <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.8</b><span class="text-muted">&nbsp;(24)</span></li>
+                        <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                        <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.5 km from center</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Item-->
+                  <div class="col pb-2">
+                    <div class="position-relative">
+                      <div class="position-relative mb-3">
+                        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+                          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu3" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu3">
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
+                            </li>
+                          </ul>
+                        </div><img class="rounded-3" src="img/city-guide/business/03.jpg" alt="Image">
+                      </div>
+                      <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Leisure Inn</a></h3>
+                      <ul class="list-inline mb-0 fs-xs">
+                        <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(43)</span></li>
+                        <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                        <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8 km from center</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Item-->
+                  <div class="col pb-2">
+                    <div class="position-relative">
+                      <div class="position-relative mb-3">
+                        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+                          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu4" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu4">
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
+                            </li>
+                          </ul>
+                        </div><img class="rounded-3" src="img/city-guide/business/04.jpg" alt="Image">
+                      </div>
+                      <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Central Cafe</a></h3>
+                      <ul class="list-inline mb-0 fs-xs">
+                        <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(40)</span></li>
+                        <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                        <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.7 km from center</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Item-->
+                  <div class="col pb-sm-2">
+                    <div class="position-relative">
+                      <div class="position-relative mb-3">
+                        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+                          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu5" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+                          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu5">
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Edit</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Promote</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-power opacity-60 me-2"></i>Deactivate</button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Delete</button>
+                            </li>
+                          </ul>
+                        </div><img class="rounded-3" src="img/city-guide/business/05.jpg" alt="Image">
+                      </div>
+                      <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Grand Resort &amp; Spa</a></h3>
+                      <ul class="list-inline mb-0 fs-xs">
+                        <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(43)</span></li>
+                        <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                        <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8 km from center</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer"></div>
+   
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js?ver=0.0.1"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js?ver=0.0.1"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js?ver=0.0.1"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js?ver=0.0.1"></script>
+    <script src="js/theme.render.js?ver=0.0.1"></script>
+  </body>
+</html>

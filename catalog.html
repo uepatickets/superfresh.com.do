@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Catalog</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/nouislider/dist/nouislider.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="fixed-bottom-btn">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign up</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar-->
+      <div id="header"></div>
+    
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container-fluid mt-5 pt-5 p-0">
+        <div class="row g-0 mt-n3">
+          <!-- Filters sidebar (Offcanvas on mobile)-->
+          <aside class="col-lg-4 col-xl-3 border-top-lg border-end-lg shadow-sm px-3 px-xl-4 px-xxl-5 pt-lg-2">
+            <div class="offcanvas offcanvas-start offcanvas-collapse" id="filters-sidebar">
+              <div class="offcanvas-header d-flex d-lg-none align-items-center">
+                <h2 class="h5 mb-0">Filters</h2>
+                <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <!-- Search form-->
+              <div class="offcanvas-header d-block border-bottom pt-0 pt-lg-4 px-lg-0">
+                <form class="form-group mb-lg-2 rounded-pill">
+                  <div class="input-group"><span class="input-group-text text-muted"><i class="fi-search"></i></span>
+                    <input class="form-control" type="text" placeholder="Search...">
+                  </div>
+                  <button class="btn btn-primary rounded-pill d-lg-inline-block d-none" type="button">Search</button>
+                  <button class="btn btn-icon btn-primary rounded-circle flex-shrink-0 d-lg-none d-inline-flex" type="button"><i class="fi-search mt-n2"></i></button>
+                </form>
+              </div>
+              <!-- Nav tabs-->
+              <div class="offcanvas-header d-block border-bottom py-lg-4 py-3 px-lg-0">
+                <ul class="nav nav-pills" role="tablist">
+                  <li class="nav-item"><a class="nav-link d-flex align-items-center active" href="#categories" data-bs-toggle="tab" role="tab"><i class="fi-list me-2"></i>Categories</a></li>
+                  <li class="nav-item"><a class="nav-link d-flex align-items-center" href="#filters" data-bs-toggle="tab" role="tab"><i class="fi-filter-alt-horizontal me-2"></i>Filters</a></li>
+                </ul>
+              </div>
+              <div class="offcanvas-body py-lg-4">
+                <!-- Tabs content-->
+                <div class="tab-content">
+                  <!-- Categories-->
+                  <div class="tab-pane fade show active" id="categories" role="tabpanel">
+                    <div class="row row-cols-lg-2 row-cols-1 g-3">
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-accent text-accent rounded-circle mb-3 mx-auto"><i class="fi-bed"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Accommodation</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i class="fi-dumbell"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Fitness &amp; Sport</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-warning text-warning rounded-circle mb-3 mx-auto"><i class="fi-cafe"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Food &amp; Drink</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-success text-success rounded-circle mb-3 mx-auto"><i class="fi-disco-ball"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Night Life</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i class="fi-shopping-bag"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Shopping</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-info text-info rounded-circle mb-3 mx-auto"><i class="fi-meds"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Medicine</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-success text-success rounded-circle mb-3 mx-auto"><i class="fi-museum"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Art &amp; History</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-warning text-warning rounded-circle mb-3 mx-auto"><i class="fi-makeup"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Beauty</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i class="fi-entertainment"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Entertainment</h3></a></div>
+                      <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover text-center" href="#">
+                          <div class="icon-box-media bg-faded-info text-info rounded-circle mb-3 mx-auto"><i class="fi-car"></i></div>
+                          <h3 class="icon-box-title fs-base mb-0">Auto Service</h3></a></div>
+                    </div>
+                  </div>
+                  <!-- Filters-->
+                  <div class="tab-pane fade" id="filters" role="tabpanel">
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Location</h3>
+                      <select class="form-select mb-2">
+                        <option value="Berlin" selected>Berlin</option>
+                        <option value="Hamburg">Hamburg</option>
+                        <option value="Munich">Munich</option>
+                        <option value="Koln">Koln</option>
+                        <option value="Frankfurt am Main">Frankfurt am Main</option>
+                      </select>
+                      <select class="form-select">
+                        <option value="" selected disabled>Choose district</option>
+                        <option value="Berlin-Mitte">Berlin-Mitte</option>
+                        <option value="Charlottenburg">Charlottenburg</option>
+                        <option value="Prenzlauer Berg">Prenzlauer Berg</option>
+                        <option value="Friedrichshain">Friedrichshain</option>
+                        <option value="Kreuzberg">Kreuzberg</option>
+                      </select>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Category</h3>
+                      <div class="dropdown mb-sm-0 mb-3" data-bs-toggle="select">
+                        <button class="btn btn-outline-secondary d-flex align-items-center w-100 px-4 fw-normal text-start dropdown-toggle" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2 text-muted"></i><span class="dropdown-toggle-label d-block w-100">All categories</span></button>
+                        <input type="hidden">
+                        <ul class="dropdown-menu w-100">
+                          <li><a class="dropdown-item" href="#"><i class="fi-bed fs-lg opacity-60"></i><span class="dropdown-item-label">Accomodation</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-cafe me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Food &amp; Drink</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Shopping</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-museum me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Art &amp; History</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-entertainment me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Entertainment</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-meds me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Medicine</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-makeup me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Beauty</span></a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fi-car me-2 fs-lg opacity-60"></i><span class="dropdown-item-label">Auto Service</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Subcategory</h3>
+                      <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false" style="height: 11rem;">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="hotel">
+                          <label class="form-check-label fs-sm" for="hotel">Hotel</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="hostel">
+                          <label class="form-check-label fs-sm" for="hostel">Hostel</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="motel">
+                          <label class="form-check-label fs-sm" for="motel">Motel</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="apartment" checked>
+                          <label class="form-check-label fs-sm" for="apartment">Apartment</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="cottage">
+                          <label class="form-check-label fs-sm" for="cottage">Cottage</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="boutique-hotel">
+                          <label class="form-check-label fs-sm" for="boutique-hotel">Boutique Hotel</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="room">
+                          <label class="form-check-label fs-sm" for="room">Room</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="land">
+                          <label class="form-check-label fs-sm" for="land">Land</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="commercial">
+                          <label class="form-check-label fs-sm" for="commercial">Commercial</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="parking-lot">
+                          <label class="form-check-label fs-sm" for="parking-lot">Parking lot</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Price</h3>
+                      <div class="range-slider" data-start-min="300" data-start-max="700" data-min="50" data-max="1000" data-step="20">
+                        <div class="range-slider-ui"></div>
+                        <div class="d-flex align-items-center">
+                          <div class="w-50 pe-2">
+                            <div class="input-group"><span class="input-group-text fs-base">$</span>
+                              <input class="form-control range-slider-value-min" type="text">
+                            </div>
+                          </div>
+                          <div class="text-muted">&mdash;</div>
+                          <div class="w-50 ps-2">
+                            <div class="input-group"><span class="input-group-text fs-base">$</span>
+                              <input class="form-control range-slider-value-max" type="text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Average Rating</h3>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="5-star">
+                        <label class="form-check-label fs-sm align-middle mt-n2" for="5-star"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="4-star">
+                        <label class="form-check-label fs-sm align-middle mt-n2" for="4-star"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star"></i></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="3-star">
+                        <label class="form-check-label fs-sm align-middle mt-n2" for="3-star"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="2-star">
+                        <label class="form-check-label fs-sm align-middle mt-n2" for="2-star"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="1-star">
+                        <label class="form-check-label fs-sm align-middle mt-n2" for="1-star"><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i><i class="star-rating-icon fi-star"></i></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Number of rooms</h3>
+                      <select class="form-select mb-2">
+                        <option value="1-room" selected>1 room</option>
+                        <option value="2-rooms">2 rooms</option>
+                        <option value="3-rooms">3 rooms</option>
+                        <option value="4-rooms">4 rooms</option>
+                        <option value="5-rooms">5 rooms</option>
+                      </select>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Amenities</h3>
+                      <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false" style="height: 11rem;">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="parking">
+                          <label class="form-check-label fs-sm" for="parking">Parking</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="restaurant">
+                          <label class="form-check-label fs-sm" for="restaurant">Restaurant</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="pet-friendly">
+                          <label class="form-check-label fs-sm" for="pet-friendly">Pet Friendly</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="room-service" checked>
+                          <label class="form-check-label fs-sm" for="room-service">Room Service</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="fitness-center">
+                          <label class="form-check-label fs-sm" for="fitness-center">Fitness Center</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="free-wifi" checked>
+                          <label class="form-check-label fs-sm" for="free-wifi">Free WiFi</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="spa-lounge">
+                          <label class="form-check-label fs-sm" for="spa-lounge">Spa lounge</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="bar">
+                          <label class="form-check-label fs-sm" for="bar">Bar</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="swimming-pool">
+                          <label class="form-check-label fs-sm" for="swimming-pool">Swimming pool</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pb-4 mb-2">
+                      <h3 class="h6">Room Facilities</h3>
+                      <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false" style="height: 11rem;">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="kitchen">
+                          <label class="form-check-label fs-sm" for="kitchen">Kitchen</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="private-bathroom">
+                          <label class="form-check-label fs-sm" for="private-bathroom">Private Bathroom</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="air-conditioning" checked>
+                          <label class="form-check-label fs-sm" for="air-conditioning">Air Conditioning</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="desk">
+                          <label class="form-check-label fs-sm" for="desk">Desk</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="terrace">
+                          <label class="form-check-label fs-sm" for="terrace">Terrace</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="washing-machine">
+                          <label class="form-check-label fs-sm" for="washing-machine">Washing Machine</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="heating">
+                          <label class="form-check-label fs-sm" for="heating">Heating</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="laundry-service">
+                          <label class="form-check-label fs-sm" for="laundry-service">Laundry Service</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="border-top py-4">
+                      <button class="btn btn-outline-primary rounded-pill" type="button"><i class="fi-rotate-right me-2"></i>Reset filters</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Page content-->
+          <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 pt-4 px-3 px-xl-4 px-xxl-5">
+            <!-- Map popup-->
+            <div class="map-popup invisible" id="map">
+              <button class="btn btn-icon btn-light btn-sm shadow-sm rounded-circle" type="button" data-bs-toggle-class="invisible" data-bs-target="#map"><i class="fi-x fs-xs"></i></button>
+              <div class="interactive-map" data-map-options-json="json/map-options-city-guide.json"></div>
+            </div>
+            <!-- Breadcrumb-->
+            <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Find accommodation</li>
+              </ol>
+            </nav>
+            <!-- Title-->
+            <div class="d-sm-flex align-items-center justify-content-between pb-3 pb-sm-4">
+              <h1 class="h2 mb-sm-0">Find accommodation</h1><a class="d-inline-block fw-bold text-decoration-none py-1" href="#" data-bs-toggle-class="invisible" data-bs-target="#map"><i class="fi-map me-2"></i>Map view</a>
+            </div>
+            <!-- Sorting-->
+            <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch my-2">
+              <div class="d-flex align-items-center flex-shrink-0">
+                <label class="fs-sm me-2 pe-1 text-nowrap" for="sortby"><i class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
+                <select class="form-select form-select-sm" id="sortby">
+                  <option>Newest</option>
+                  <option>Popularity</option>
+                  <option>Low - High Price</option>
+                  <option>High - Low Price</option>
+                  <option>High rating</option>
+                  <option>Average Rating</option>
+                </select>
+              </div>
+              <hr class="d-none d-sm-block w-100 mx-4">
+              <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted"><i class="fi-check-circle me-2"></i><span class="fs-sm mt-n1">148 results</span></div>
+            </div>
+            <!-- Catalog grid-->
+            <div class="row row-cols-xl-3 row-cols-sm-2 row-cols-1 gy-4 gx-3 gx-xxl-4 py-4">
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/01.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Berlin Business Hotel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(48)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/02.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Big Tree Cottage</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.8</b><span class="text-muted">&nbsp;(24)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.5 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/03.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Grand Resort &amp; Spa</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(43)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/04.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Serene Stays</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(12)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>3.2 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/05.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Leisure Inn</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.0</b><span class="text-muted">&nbsp;(9)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>2.1 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/06.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Bliss Apartment</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.8</b><span class="text-muted">&nbsp;(32)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.9 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/07.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Merry Berry Motel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.5</b><span class="text-muted">&nbsp;(13)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.4 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/08.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Serenity Hotel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(17)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.6 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/09.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Repose Hotel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(45)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/10.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Tranquil Hostel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.0</b><span class="text-muted">&nbsp;(15)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.7 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/11.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Soothe &amp; Stay</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.6</b><span class="text-muted">&nbsp;(10)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>2.4 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/12.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Best Nest Apartment</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(10)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.1 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/13.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Pine Cottage</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(12)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>4.7 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/14.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Greenpoint Boutique Hotel</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(12)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.4 km from center</li>
+                  </ul>
+                </article>
+              </div>
+              <!-- Item-->
+              <div class="col pb-sm-2">
+                <article class="position-relative">
+                  <div class="position-relative mb-3">
+                    <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites"><i class="fi-heart"></i></button><img class="rounded-3" src="img/city-guide/catalog/15.jpg" alt="Article img">
+                  </div>
+                  <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Crystal Apartment</a></h3>
+                  <ul class="list-inline mb-0 fs-xs">
+                    <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(52)</span></li>
+                    <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                    <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.5 km from center</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+            <!-- Pagination-->
+            <nav class="border-top pb-md-4 pt-4" aria-label="Pagination">
+              <ul class="pagination mb-1">
+                <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+                <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                <li class="page-item d-none d-sm-block">...</li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer"></div>
+   
+    <!-- Filters sidebar toggle button (mobile)-->
+    <button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar"><i class="fi-filter me-2"></i>Filters</button>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/leaflet/dist/leaflet.js"></script>
+    <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="js/theme.render.js"></script>
+  </body>
+</html>

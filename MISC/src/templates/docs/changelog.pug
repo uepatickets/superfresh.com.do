@@ -1,0 +1,49 @@
+extends ../partials/layout-docs
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Changelog'
+  
+//- Page Content
+block content
+
+  h2.h4.pb-2
+    span.text-primary v1.1.0&nbsp;
+    | &ndash;&nbsp;
+    | August 19, 2021
+  ul.list-unstyled
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-info.fs-sm.pt-1.me-3 New
+      div Loading placeholders component page. <a href='../components/placeholders.html' class='fs-sm text-decoration-none' target='_blank' rel='noopener'>View demo<i class='fi-chevron-right fs-xs ms-1'></i></a>
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-success.fs-sm.pt-1.me-3 Updated
+      div Plugins and libraries to latest versions including Bootstrap to v5.1.0
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-warning.fs-sm.pt-1.me-3 Fixed
+      div Navbar offcanvas example. <a href='../components/navbar.html#navbar-offcanvas' class='fs-sm text-decoration-none' target='_blank' rel='noopener'>See here<i class='fi-chevron-right fs-xs ms-1'></i></a>
+
+  hr.my-5
+
+  h2.h4.pb-2
+    span.text-primary v1.0.1&nbsp;
+    | &ndash;&nbsp;
+    | July 26, 2021
+  ul.list-unstyled
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-success.fs-sm.pt-1.me-3 Updated
+      div Node.js to latest version 16x. Switched from deprecated <strong>node-sass</strong> to <strong>dart-sass</strong>. Replaced all cases of division <code>/</code> with multiplication <code>*</code> inside SCSS code.
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-success.fs-sm.pt-1.me-3 Updated
+      div Plugins and libraries to latest versions including Bootstrap to v5.0.2
+    li.d-flex.align-items-start.mb-3
+      span.badge.bg-warning.fs-sm.pt-1.me-3 Fixed
+      div Typos in texts and minor improvements
+
+  hr.my-5
+
+  h2.h4.pb-1
+    span.text-primary v1.0.0&nbsp;
+    | &ndash;&nbsp;
+    | June 15, 2021
+  ul.list-unstyled.mb-4.pb-3
+    li Initial release

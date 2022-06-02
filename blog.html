@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Blog</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="fixed-bottom-btn">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info rounded-pill w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg rounded-pill w-100" type="submit">Sign up</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar-->
+      <div id="header"></div>
+    
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container mt-5 mb-md-4 py-5">
+        <!-- Breadcrumb-->
+        <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+          </ol>
+        </nav>
+        <h1 class="mb-4">News &amp; insights</h1>
+        <!-- Sponsored posts-->
+        <div class="row gy-4 mb-md-5 mb-4 pb-md-5 pb-4 border-bottom">
+          <!-- Article-->
+          <article class="col-md-6 pb-2 pb-md-0">
+            <div class="card border-0 h-100"><a class="d-block position-relative mb-3" href="city-guide-blog-single.html"><span class="badge bg-success position-absolute top-0 end-0 m-3 fs-sm">Sponsored</span><img class="rounded-3" src="img/city-guide/blog/04.jpg" alt="Post image"></a>
+              <div class="card-body p-0"><a class="fs-sm text-uppercase text-decoration-none" href="#">Architecture</a>
+                <h2 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">10 Delightful Dining Room Decor Trends for Spring</a></h2>
+                <p class="mb-md-4 text-muted">Mi sit montes, aenean tempor sollicitudin volutpat viverra. Tellus amet, vitae ac consectetur blandit at. Odio proin elit, vehicula morbi faucibus vestibulum. Elementum sed tincidunt nec aliquam tempus. Neque pharetra vitae malesuada.</p>
+              </div>
+              <div class="card-footer p-0 border-top-0"><a class="d-flex align-items-center text-decoration-none position-relative zindex-5" href="#"><img class="rounded-circle" src="img/avatars/23.png" width="48" alt="Avatar">
+                  <div class="ps-2">
+                    <h6 class="fs-sm text-nav lh-base mb-1">Kristin Watson</h6>
+                    <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Apr 28</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>0 comments</span></div>
+                  </div></a></div>
+            </div>
+          </article>
+          <!-- Article-->
+          <article class="col-md-6 pb-2 pb-md-0">
+            <article class="card border-0 h-100"><a class="d-block position-relative mb-3" href="city-guide-blog-single.html"><span class="badge bg-success position-absolute top-0 end-0 m-3 fs-sm">Sponsored</span><img class="rounded-3" src="img/city-guide/blog/05.jpg" alt="Post image"></a>
+              <div class="card-body p-0"><a class="fs-sm text-uppercase text-decoration-none" href="#">Travelling</a>
+                <h2 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">10 Travel Mistakes to Avoid During Coronavirus Outbreak</a></h2>
+                <p class="mb-md-4 text-muted">Phasellus consequat ut sagittis, vestibulum, eget egestas senectus quis congue. Posuere montes, in ultrices vitae, luctus. Ultrices aliquet pellentesque egt in sed platea egestas amet purus nibh suspendisse semper. Iaculis sit quam magna...</p>
+              </div>
+              <div class="card-footer p-0 border-top-0"><a class="d-flex align-items-center text-decoration-none position-relative zindex-5" href="#"><img class="rounded-circle" src="img/avatars/24.png" width="48" alt="Avatar">
+                  <div class="ps-2">
+                    <h6 class="fs-sm text-nav lh-base mb-1">Annette Black</h6>
+                    <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Mar 15</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>3 comments</span></div>
+                  </div></a></div>
+            </article>
+          </article>
+        </div>
+        <!-- List of posts + Sidebar-->
+        <div class="row">
+          <!-- Sidebar (offcanvas)-->
+          <aside class="col-lg-3">
+            <div class="offcanvas offcanvas-start offcanvas-collapse" id="blog-sidebar">
+              <div class="offcanvas-header shadow-sm mb-2">
+                <h2 class="h5 offcanvas-title">Sidebar</h2>
+                <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <!-- Sorting-->
+                <div class="d-flex align-items-center mb-4">
+                  <label class="d-inline-block me-2 pe-1 text-muted text-nowrap" for="sort"><i class="fi-arrows-sort mt-n1 me-1 align-middle opacity-80"></i>Sort by:</label>
+                  <select class="form-select" id="sort">
+                    <option>Newest</option>
+                    <option>Oldest</option>
+                    <option>Popular</option>
+                  </select>
+                </div>
+                <!-- Search-->
+                <div class="position-relative mb-4">
+                  <input class="form-control pe-5" type="text" placeholder="Search article by keywords..."><i class="fi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                </div>
+                <!-- Categories-->
+                <div class="card card-flush pb-2 pb-lg-0 mb-4">
+                  <div class="card-body">
+                    <h3 class="h5">Categories</h3><a class="nav-link fw-normal d-flex justify-content-between py-1 px-0" href="#">Architecture<span class="text-muted ms-2">(2)</span></a><a class="nav-link fw-normal d-flex justify-content-between py-1 px-0" href="#">Travelling<span class="text-muted ms-2">(4)</span></a><a class="nav-link fw-normal d-flex justify-content-between py-1 px-0" href="#">Lifestyle<span class="text-muted ms-2">(5)</span></a><a class="nav-link fw-normal d-flex justify-content-between py-1 px-0" href="#">Entertainment<span class="text-muted ms-2">(1)</span></a><a class="nav-link fw-normal d-flex justify-content-between py-1 px-0" href="#">Accomodation<span class="text-muted ms-2">(8)</span></a>
+                  </div>
+                </div>
+                <!-- Tags-->
+                <div class="card card-flush pb-2 pb-lg-0 mb-4">
+                  <div class="card-body">
+                    <h4 class="h5">Popular Tags</h4>
+                    <div class="d-flex flex-wrap mb-n1">
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Trending</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Tutorial</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Places</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Urban</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Tips</button>
+                      <button class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">Travel</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Subscribe-->
+                <div class="card card-flush mb-4">
+                  <div class="card-body">
+                    <h4 class="h5 mb-3">Stay Informed</h4>
+                    <p class="fs-sm mb-3">Subscribe to our newsletter and be the first to see the latest news and advice.</p>
+                    <form class="form-group rounded-pill">
+                      <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i class="fi-mail"></i></span>
+                        <input class="form-control" type="email" placeholder="Your email">
+                      </div>
+                      <button class="btn btn-primary btn-sm rounded-pill" type="button">Sign up</button>
+                    </form>
+                    <div class="form-text fs-xs pt-1">* By signing up you agree to our <a href='#'>Privacy Policy</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Articles list-->
+          <div class="col-lg-9">
+            <div class="ps-lg-3">
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/06.jpg);"><span class="badge bg-info position-absolute top-0 end-0 m-3 fs-sm">New</span></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Travelling</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">Air Travel in the Time of COVID-19</a></h3>
+                  <p class="fs-sm text-muted">Mi sit montes, aenean tempor sollicitudin volutpat viverra. Tellus amet, vitae ac consectetur blandit at. Odio proin elit, vehicula morbi faucibus vestibulum pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/25.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Bessie Cooper</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>May 24</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>3 comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/07.jpg);"></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Inspiration</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">10 World-Class Museums You Can Visit Online</a></h3>
+                  <p class="fs-sm text-muted">Nunc vivamus nam vitae ut faucibus metus pretium nisl. Elementum sed tincidunt nec aliquam tempus. Neque pharetra vitae, mauris malesuada.  Porttitor consequat, sollicitudin vivamus pharetra nibh faucibus neque, viverra.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/24.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Annette Black</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>May 17</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>4 comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/08.jpg);"></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Entertainment</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">7 Tips for Solo Travelers in Africa</a></h3>
+                  <p class="fs-sm text-muted">Phasellus cursus orci pulvinar proin nulla vitae. Arcu faucibus vestibulum fames eget nunc. Ut in sed platea egestas amet purus nibh suspendisse semper. Iaculis sit quam magna congue. Amet vel non aliquet habitasse.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/26.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Ralph Edwards</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>May 10</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>2 comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/09.jpg);"></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Accomodation</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">How to Spend a Few Days Visiting Coast</a></h3>
+                  <p class="fs-sm text-muted">Mi sit montes, aenean tempor sollicitudin volutpat viverra. Tellus amet, vitae ac consectetur blandit at. Odio proin elit, vehicula morbi faucibus vestibulum. Praesent sed pulvinar posuere nisl tincidunt. Iaculis sit quam magna congue.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/23.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Kristin Watson</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Apr 30</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>No comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/10.jpg);"></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Inspiration</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">US Museum Industry 2021–2024</a></h3>
+                  <p class="fs-sm text-muted">Nunc vivamus nam vitae ut faucibus metus pretium nisl. Elementum sed tincidunt nec aliquam tempus. Neque pharetra vitae, mauris malesuadafelis donec eu sit nisi. Accumsan mauris eget convallis mattis sed etiam scelerisque.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/27.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Guy Hawkins</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Apr 19</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>2 comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+              <!-- Article-->
+              <article class="card card-horizontal border-0 mb-4"><a class="card-img-top position-relative rounded-3 me-sm-4 mb-sm-0 mb-3" href="city-guide-blog-single.html" style="background-image: url(img/city-guide/blog/11.jpg);"></a>
+                <div class="card-body px-0 pt-0 pb-lg-5 pb-sm-4 pb-2"><a class="fs-sm text-uppercase text-decoration-none" href="#">Lifestyle</a>
+                  <h3 class="h5 pt-1 mb-2"><a class="nav-link" href="city-guide-blog-single.html">Rocky Mountains Ski Resorts News &amp; Events</a></h3>
+                  <p class="fs-sm text-muted">Phasellus cursus orci pulvinar proin nulla vitae. Arcu faucibus vestibulum fames eget nunc. Ut in sed platea egestas amet purus nibh suspendisse semper. Praesent sed pulvinar posuere nisl tincidunt. Praesent amet sed lacus vitae.</p><a class="d-flex align-items-center text-decoration-none" href="#"><img class="rounded-circle" src="img/avatars/26.png" width="48" alt="Avatar">
+                    <div class="ps-2">
+                      <h6 class="fs-sm text-nav lh-base mb-1">Ralph Edwards</h6>
+                      <div class="d-flex text-body fs-xs"><span class="me-2 pe-1"><i class="fi-calendar-alt opacity-70 mt-n1 me-1 align-middle"></i>Apr 06</span><span><i class="fi-chat-circle opacity-70 mt-n1 me-1 align-middle"></i>5 comments</span></div>
+                    </div></a>
+                </div>
+              </article>
+            </div>
+            <!-- Pagination-->
+            <div class="d-flex justify-content-end pt-4 border-top">
+              <nav aria-label="Blog pagination">
+                <ul class="pagination mb-0">
+                  <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 8</span></li>
+                  <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+                  <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item d-none d-sm-block">...</li>
+                  <li class="page-item d-none d-sm-block"><a class="page-link" href="#">8</a></li>
+                  <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer"></div>
+   
+    <!-- Filters sidebar toggle button (mobile)-->
+    <button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar"><i class="fi-sidebar-left me-2"></i>Sidebar</button>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="js/theme.render.js"></script>
+  </body>
+</html>

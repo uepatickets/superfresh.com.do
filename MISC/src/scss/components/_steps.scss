@@ -1,0 +1,129 @@
+//
+// Steps
+// --------------------------------------------------
+
+
+// Container
+
+.steps {
+  display: flex;
+  padding-top: $step-number-size * .5;
+}
+
+
+// Individual step
+
+.step {
+  flex-basis: 0;
+  flex-grow: 1;
+  text: {
+    align: center;
+    decoration: none;
+  }
+}
+
+.step-progress {
+  position: relative;
+  width: 100%;
+  height: $step-progress-height;
+}
+
+.step-progress-start,
+.step-progress-end {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: .125rem;
+  margin-top: -.0625rem;
+  overflow: hidden;
+  &::before {
+    display: block;
+    width: 62rem;
+    height: 100%;
+    background-image: escape-svg(url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='#{$step-progress-bg}' stroke-width='4' stroke-dasharray='2%2c 18' stroke-dashoffset='8' stroke-linecap='butt'/%3e%3c/svg%3e"));
+    content: '';
+  }
+}
+.step-progress-start { left: 0; }
+.step-progress-end { left: 50%; }
+.step:first-child .step-progress .step-progress-start { display: none; }
+.step:last-child .step-progress .step-progress-end { display: none; }
+
+.step-number {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: $step-number-size;
+  height: $step-number-size;
+  margin: {
+    top: -($step-number-size * .5);
+    left: -($step-number-size * .5);
+  }
+  transition: $step-number-transition;
+  border-radius: $step-number-border-radius;
+  background: $step-number-bg;
+  color: $step-number-color;
+  font: {
+    size: $step-number-font-size;
+    weight: $step-number-font-weight;
+  }
+  box-shadow: $step-number-box-shadow;
+  line-height: $step-number-size;
+}
+
+.step-label {
+  padding-top: ($step-number-size * .5) + .5rem;
+  color: $step-label-color;
+  font-size: $step-label-font-size;
+}
+
+
+// Active step
+
+.step.active {
+  .step-progress {
+    .step-progress-start,
+    .step-progress-end {
+      height: $step-progress-height;
+      background-color: $step-active-progress-bg;
+      &::before { display: none; }
+    }
+  }
+  .step-number {
+    background-color: $step-acitve-number-bg;
+    color: $step-acitve-number-color;
+    box-shadow: $step-acitve-box-shadow;
+  }
+}
+
+
+// Light version
+
+.steps-light {
+  .step:not(.active) {
+    .step-progress-start::before,
+    .step-progress-end::before {
+      background-image: escape-svg(url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='#{$step-light-progress-bg}' stroke-width='4' stroke-dasharray='2%2c 18' stroke-dashoffset='8' stroke-linecap='butt'/%3e%3c/svg%3e"));
+    }
+    .step-number {
+      background-color: $step-light-number-bg;
+      color: $step-light-number-color;
+      box-shadow: none;
+    }  
+  }
+  .step.active .step-number { box-shadow: none; }
+  .step-label { color: $step-light-label-color; }
+}
+
+
+// Links
+
+a.step {
+  &:hover .step-number:not(.active) {
+    background-color: $step-acitve-number-bg;
+    color: $step-acitve-number-color;
+    box-shadow: $step-acitve-box-shadow;
+  }
+  &.active { pointer-events: none; }
+}

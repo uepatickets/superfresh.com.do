@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Account - Favorites</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+    <!-- Navbar-->
+    <div id="header"></div>
+    
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container mt-5 mb-md-4 py-5">
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pt-md-3" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="city-guide-account-info.html">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Favorites</li>
+          </ol>
+        </nav>
+        <!-- Account header-->
+        <div class="d-flex align-items-center justify-content-between pb-4 mb-2">
+          <div class="d-flex align-items-center">
+            <div class="position-relative flex-shrink-0"><img class="rounded-circle border border-white" src="img/avatars/29.png" width="100" alt="Annette Black">
+              <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm position-absolute end-0 bottom-0" type="button" data-bs-toggle="tooltip" title="Change image"><i class="fi-pencil fs-xs"></i></button>
+            </div>
+            <div class="ps-3 ps-sm-4">
+              <h3 class="h4 mb-2">Annette Black</h3><span class="star-rating"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+            </div>
+          </div><a class="nav-link p-0 d-none d-md-block" href="#"><i class="fi-logout mt-n1 me-2"></i>Sign out</a>
+        </div>
+        <!-- Page content-->
+        <div class="card card-body p-4 p-md-5 shadow-sm">
+          <!-- Account nav-->
+          <div class="mt-md-n3 mb-4"><a class="btn btn-outline-primary btn-lg rounded-pill w-100 d-md-none" href="#account-nav" data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>Account Menu</a>
+            <div class="collapse d-md-block" id="account-nav">
+              <ul class="nav nav-pills flex-column flex-md-row pt-3 pt-md-0 pb-md-4 border-bottom-md">
+                <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link" href="city-guide-account-info.html"><i class="fi-user mt-n1 me-2 fs-base"></i>Personal Info</a></li>
+                <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link active" href="city-guide-account-favorites.html" aria-current="page"><i class="fi-heart mt-n1 me-2 fs-base"></i>Favorites</a></li>
+                <li class="nav-item mb-md-0 me-md-2 pe-md-1"><a class="nav-link" href="city-guide-account-reviews.html"><i class="fi-star mt-n1 me-2 fs-base"></i>Reviews</a></li>
+                <li class="nav-item mb-md-0"><a class="nav-link" href="city-guide-account-notifications.html"><i class="fi-bell mt-n1 me-2 fs-base"></i>Notifications</a></li>
+                <li class="nav-item d-md-none"><a class="nav-link" href="#"><i class="fi-logout mt-n1 me-2 fs-base"></i>Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-4 pt-2">
+            <h1 class="h3 mb-md-0">Favorite Listings</h1>
+            <!-- Sort-->
+            <div class="d-flex align-items-sm-center align-items-end">
+              <div class="d-flex flex-sm-row flex-column align-items-sm-center w-100 pe-sm-2">
+                <label class="mb-sm-0 mb-2 me-sm-2 pe-sm-1 text-nowrap" for="sortby"><i class="fi-arrows-sort me-2"></i>Sort by:</label>
+                <select class="form-select form-select-sm" id="sortby" style="min-width: 180px;">
+                  <option>Newest</option>
+                  <option>Oldest</option>
+                  <option>Rating</option>
+                </select>
+              </div><a class="d-inline-block ms-sm-4 ms-3 mb-sm-0 mb-2 fs-sm fw-bold text-decoration-none text-nowrap" href="#"><i class="fi-x fs-xs me-2 align-middle"></i>Clear all</a>
+            </div>
+          </div>
+          <!-- Favorites grid-->
+          <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-4 gx-3 gx-lg-4">
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/07.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Merry Berry Motel</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.5</b><span class="text-muted">&nbsp;(13)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.4 km from center</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/08.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Serenity Hotel</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(17)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.6 km from center</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/09.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Repose Hotel</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(45)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4 km from center</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/10.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Tranquil Hostel</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.0</b><span class="text-muted">&nbsp;(15)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.7 km from center</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/06.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Bliss Apartment</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.8</b><span class="text-muted">&nbsp;(32)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.9 km from center</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Item-->
+            <div class="col pt-2">
+              <div class="position-relative">
+                <div class="position-relative mb-3">
+                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from Favorites"><i class="fi-heart-filled"></i></button><img class="rounded-3" src="img/city-guide/catalog/11.jpg" alt="Article img">
+                </div>
+                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="city-guide-single.html">Soothe &amp; Stay</a></h3>
+                <ul class="list-inline mb-0 fs-xs">
+                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.6</b><span class="text-muted">&nbsp;(40)</span></li>
+                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
+                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>2.4 km from center</li>
+                </ul>
+              </div>
+            </div><a class="d-inline-block py-sm-2 fw-bold text-decoration-none" href="#"><i class="fi-refresh me-2 align-middle"></i>Load more</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer"></div>
+   
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="js/theme.render.js"></script>
+  </body>
+</html>
