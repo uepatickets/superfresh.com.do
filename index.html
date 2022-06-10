@@ -124,53 +124,83 @@
         <div class="page-spinner"></div><span>Cargando...</span>
       </div>
     </div>
+
+         <!-- Header + modal login y registrar -->
+         <div id="header"></div>
+
     <main class="page-wrapper">
 
   
-      <!-- Header + modal login y registrar -->
-      <div id="header"></div>
-
+ 
       <!-- Page content-->
-      <!-- Hero-->
-      <section class="container py-5 mt-3 mb-lg-3">
-        <div class="row align-items-center mt-md-2">
-          <div class="col-lg-7 order-lg-2 mb-lg-0 mb-4 pb-2 pb-lg-0"><img class="d-block mx-auto" src="img/hero-img.jpg" width="746" alt="Hero image"></div>
-          <div class="col-lg-5 order-lg-1 pe-lg-0">
-            <h5 class="text-primary">PRODUCTOS FRESCOS</h5>
-            <h1 class="display-5 mb-4 me-lg-n5 text-lg-start text-center mb-4">Explorar <span class="dropdown d-inline-block"><a class="dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a><span class="dropdown-menu dropdown-menu-end my-1"><a class="dropdown-item fs-base fw-bold" href="#">Panadería</a><a class="dropdown-item fs-base fw-bold" href="#">Carnes</a><a class="dropdown-item fs-base fw-bold" href="#">Frutas</a><a class="dropdown-item fs-base fw-bold" href="#">Vegetales</a><a class="dropdown-item fs-base fw-bold" href="#">Otros</a></span></span></h1>
-            <p class="text-lg-start text-center mb-4 mb-lg-5 fs-lg">Encuentre excelentes productos frescos en un sólo lugar.</p>
-            <!-- Search form-->
-            <div class="me-lg-n5">
-              <form class="form-group d-block d-md-flex position-relative rounded-md-pill me-lg-n5">
-                <div class="input-group input-group-lg border-end-md"><span class="input-group-text text-muted rounded-pill ps-3"><i class="fi-search"></i></span>
-                  <input class="form-control" type="text" placeholder="¿Qué estás buscando?">
-                </div>
-                <hr class="d-md-none my-2">
-                <div class="d-sm-flex">
-                  <div class="dropdown w-100 mb-sm-0 mb-3" data-bs-toggle="select">
-                    <button class="btn btn-link btn-lg dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">Categorias</span></button>
-                    <input type="hidden">
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#"><i class="fi-bed fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Panadería</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-cafe fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Comida &amp; Bebida</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Carnes</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-museum fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Frutas</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-entertainment fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Vegetales</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-meds fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Medicina</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-makeup fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Del Mar</span></a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fi-car fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Dulces</span></a></li>
-                    </ul>
-                  </div>
-                  <a href="productos.html" class="btn btn-primary btn-lg rounded-pill w-100 w-md-auto ms-sm-3" type="button">Buscar</a>
-                </div>
-              </form>
-            </div>
+      <div id="myCarousel" class="carousel slide my-5 pt-3 w-100" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img class="w-100" src="img/banner/1.jpg">
+          </div>
+          <div class="carousel-item active">
+            <img class="w-100" src="img/banner/2.jpg">
+          </div>
+          <div class="carousel-item">
+            <img class="w-100" src="img/banner/3.jpg">
           </div>
         </div>
-      </section>
-     
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    
+
+
+        <!--Servicios-->
+        <section class="container mb-5 mt-n3 mt-lg-0">
+          <div class="row">
+            
+              <div class="col col-6 col-lg-4" id="tns1-item0">
+                <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/pricing/icon-4.svg" width="128" alt="Illustration">
+                  <div class="card-body">
+                    <h2 class="h4 card-title">Empléate</h2>
+                    <p class="card-text fs-sm">Trabaja con nosotros y lleva Nutrición, Salud y Bienestar a millones de personas en el mundo.</p>
+                  </div>
+                  <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="#">Leer más</a></div>
+                </div>
+              </div>
+              <div class="col col-6 col-lg-4" id="tns1-item1">
+                <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/pricing/icon-1.svg" width="128" alt="Illustration">
+                  <div class="card-body">
+                    <h2 class="h4 card-title">¿Necesitas hablar?</h2>
+                    <p class="card-text fs-sm">Cuéntanos cuáles son tus quejas sobre ética y cumplimiento normativo. ¡Te leemos y escuchamos!</p>
+                  </div>
+                  <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="#">Leer más</a></div>
+                </div>
+              </div>
+              <div class="col col-6 col-lg-4" id="tns1-item2">
+                <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="img/pricing/icon-2.svg" width="128" alt="Illustration">
+                  <div class="card-body">
+                    <h2 class="h4 card-title">Creación de valor</h2>
+                    <p class="card-text fs-sm">Este concepto se define como la piedra angular de la responsabilidad social corporativa y la sostenibilidad.</p>
+                  </div>
+                  <div class="card-footer pt-0 border-0"><a class="btn btn-outline-primary stretched-link" href="#">Leer más</a></div>
+                </div>
+              </div>
+             </div>
+        </section>
+
+      <hr/>
+
         <!-- Banners ads-->
-        <section class="container mb-5 pb-lg-3">
+        <section class="container pt-5 my-5 pb-lg-3">
           <!-- Carousel-->
           <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-center">
             <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 1, &quot;edgePadding&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;controls&quot;: true, &quot;gutter&quot;: 16}, &quot;768&quot;: {&quot;gutter&quot;: 24}}}">
@@ -237,161 +267,8 @@
             </div>
           </div>
         </section>
-      <!-- Where to stay-->
-      <section class="container mb-sm-5 mb-4 pb-lg-4">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 pb-2">
-          <h2 class="h3 mb-sm-0">Productos recientes</h2><a class="btn btn-link fw-normal ms-sm-3 p-0" href="productos.html">Ver más<i class="fi-arrow-long-right ms-2"></i></a>
-        </div>
-        <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside">
-          <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;gutter&quot;: 24, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;nav&quot;:true},&quot;500&quot;:{&quot;items&quot;:2},&quot;850&quot;:{&quot;items&quot;:3},&quot;1400&quot;:{&quot;items&quot;:3,&quot;nav&quot;:false}}}">
-            <!-- Item-->
-            <div>
-              <div class="position-relative">
-                <div class="position-relative mb-3">
-                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Favorito"><i class="fi-heart"></i></button><img class="rounded-3" src="img/productos/5.jpg" alt="Image">
-                </div>
-                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Nombre producto</a></h3>
-                <ul class="list-inline mb-0 fs-xs">
-                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(48)</span></li>
-                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
-                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4</li>
-                </ul>
-              </div>
-            </div>
-            <!-- Item-->
-            <div>
-              <div class="position-relative">
-                <div class="position-relative mb-3">
-                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Favorito"><i class="fi-heart"></i></button><img class="rounded-3" src="img/productos/2.jpg" alt="Image">
-                </div>
-                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Nombre producto</a></h3>
-                <ul class="list-inline mb-0 fs-xs">
-                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.8</b><span class="text-muted">&nbsp;(24)</span></li>
-                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
-                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.5</li>
-                </ul>
-              </div>
-            </div>
-            <!-- Item-->
-            <div>
-              <div class="position-relative">
-                <div class="position-relative mb-3">
-                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Favorito"><i class="fi-heart"></i></button><img class="rounded-3" src="img/productos/3.jpg" alt="Image">
-                </div>
-                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Nombre producto</a></h3>
-                <ul class="list-inline mb-0 fs-xs">
-                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.9</b><span class="text-muted">&nbsp;(43)</span></li>
-                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
-                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8</li>
-                </ul>
-              </div>
-            </div>
-            <!-- Item-->
-            <div>
-              <div class="position-relative">
-                <div class="position-relative mb-3">
-                  <button class="btn btn-icon btn-light-primary btn-xs text-primary rounded-circle position-absolute top-0 end-0 m-3 zindex-5" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Favorito"><i class="fi-heart"></i></button><img class="rounded-3" src="img/productos/4.jpg" alt="Image">
-                </div>
-                <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Nombre producto</a></h3>
-                <ul class="list-inline mb-0 fs-xs">
-                  <li class="list-inline-item pe-1"><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.5</b><span class="text-muted">&nbsp;(13)</span></li>
-                  <li class="list-inline-item pe-1"><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
-                  <li class="list-inline-item pe-1"><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.4</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Banner + Where to eat-->
-      <div class="container mb-5 pb-lg-4">
-        <div class="row">
-          <!-- Banner-->
-          <div class="col-lg-4 text-center text-lg-start mb-lg-0 mb-5"><a class="d-block text-decoration-none bg-faded-accent rounded-3 h-100" href="#">
-              <div class="p-4">
-                <h2 class="mb-0 p-2 text-primary text-nowrap"><i class="fi-phone mt-n1 me-2 pe-1 fs-3 align-middle"></i>Delivery<span class="text-dark">&nbsp;Fresh</span></h2>
-                <p class="mb-0 p-2 fs-lg text-body">¡Tus pedidos en casa!</p>
-              </div><img src="img/ilustraciones/taxi.svg" alt="Illustration"></a></div>
-          <!-- Where to eat-->
-          <div class="col-lg-8">
-            <div class="d-flex align-items-center justify-content-between mb-4 pb-2">
-              <h2 class="h3 mb-0">Servicios</h2><a class="btn btn-link fw-normal p-0" href="productos.html">Ver más<i class="fi-arrow-long-right ms-2"></i></a>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative mb-4"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/01.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Pina Pizza Restaurant</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(48)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.4</li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative mb-4"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/02.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">KFC</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.0</b><span class="text-muted">&nbsp;(18)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8</li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative mb-4"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/03.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Yum Restaurant</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>4.6</b><span class="text-muted">&nbsp;(48)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>2.4</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative mb-4"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/04.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Tosaka Sushi Bar</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(28)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>2.5</li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative mb-4"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/05.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Dunkin' Donuts</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(43)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>1.8</li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- Item-->
-                <div class="d-flex align-items-start position-relative"><img class="flex-shrink-0 me-3 rounded-3" src="img/marcas/06.svg" alt="Brand logo">
-                  <div>
-                    <h3 class="mb-2 fs-lg"><a class="nav-link stretched-link" href="producto.html">Spicy Bar-Restaurant</a></h3>
-                    <ul class="list-unstyled mb-0 fs-xs">
-                      <li><i class="fi-star-filled mt-n1 me-1 fs-base text-warning align-middle"></i><b>5.0</b><span class="text-muted">&nbsp;(32)</span></li>
-                      <li><i class="fi-credit-card mt-n1 me-1 fs-base text-muted align-middle"></i>$$$</li>
-                      <li><i class="fi-map-pin mt-n1 me-1 fs-base text-muted align-middle"></i>0.4</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+    
       <!-- Upcoming events-->
      <br/>
       <!-- What’s new-->
