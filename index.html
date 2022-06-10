@@ -271,50 +271,36 @@
     
       <!-- Upcoming events-->
      <br/>
-      <!-- What’s new-->
-      <section class="container mt-n3 mt-md-0 mb-5 pb-lg-4">
-        <h2 class="h3 mb-4 pb-2">¿Qué hay de nuevo para conocer?</h2>
-        <!-- Carousel-->
-        <div class="tns-carousel-wrapper">
-          <div class="tns-carousel-inner" data-carousel-options="{&quot;mode&quot;: &quot;gallery&quot;, &quot;nav&quot;: false, &quot;controlsContainer&quot;: &quot;#carousel-controls&quot;}">
-            <!-- Item-->
-            <div>
-              <div class="row">
-                <div class="col-md-7 mb-md-0 mb-3"><img class="position-relative rounded-3 zindex-5" src="img/tienda/1.jpg" alt="Article image"></div>
-                <div class="col-md-5">
-                  <h3 class="h4 from-top">Gastronomía</h3>
-                  <ul class="list-unstyled delay-2 from-end">
-                    <li class="mb-1 fs-sm"><i class="fi-map-pin text-muted me-2 fs-base"></i>Santo Domingo, 29, 10118</li>
-                    <li class="mb-1 fs-sm"><i class="fi-clock text-muted me-2 fs-base"></i>9:00 – 23:00</li>
-                    <li class="mb-1 fs-sm"><i class="fi-wallet text-muted me-2 fs-base"></i>$$</li>
-                  </ul>
-                  <p class="pb-2 delay-3 from-end d-none d-lg-block">Avenida Tiradentes #22, Santo Domingo Dominican Republic.</p><a class="btn btn-primary rounded-pill delay-4 scale-up" href="producto.html">Ver más<i class="fi-chevron-right fs-sm ms-2"></i></a>
+      <!-- Contacto -->
+      <div class="bg-secondary py-5" id="contacto">
+        <div class="container py-md-2 py-lg-4">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-xl-8">
+              <h3 class="text-center mb-4 pb-sm-2">Formulario de contacto</h3>
+              <form class="needs-validation row gy-md-4 gy-3 pb-sm-2" novalidate="">
+                <div class="col-sm-6">
+                  <label class="form-label" for="comment-name">Nombre</label>
+                  <input class="form-control form-control-lg" type="text" id="comment-name" placeholder="Nombre" required="">
+                  <div class="invalid-feedback">Please enter your name.</div>
                 </div>
-              </div>
-            </div>
-            <!-- Item-->
-            <div>
-              <div class="row">
-                <div class="col-md-7 mb-md-0 mb-3"><img class="position-relative rounded-3 zindex-5" src="img/tienda/2.jpg" alt="Article image"></div>
-                <div class="col-md-5">
-                  <h3 class="h4 from-top">Nuestra tienda</h3>
-                  <ul class="list-unstyled delay-2 from-end">
-                    <li class="mb-1 fs-sm"><i class="fi-map-pin text-muted me-2 fs-base"></i>Superfresh Market</li>
-                    <li class="mb-1 fs-sm"><i class="fi-clock text-muted me-2 fs-base"></i>10:00 – 20:00</li>
-                    <li class="mb-1 fs-sm"><i class="fi-wallet text-muted me-2 fs-base"></i>$$</li>
-                  </ul>
-                  <p class="pb-2 delay-3 from-end d-none d-lg-block">Avenida Tiradentes #22, Santo Domingo Dominican Republic.</p><a class="btn btn-primary rounded-pill delay-4 scale-up" href="producto.html">Ver más<i class="fi-chevron-right fs-sm ms-2"></i></a>
+                <div class="col-sm-6">
+                  <label class="form-label" for="comment-email">Correo</label>
+                  <input class="form-control form-control-lg" type="email" id="comment-email" placeholder="Correo electrónico..." required="">
+                  <div class="invalid-feedback">Please provide a valid email address.</div>
                 </div>
-              </div>
+                <div class="col-12">
+                  <label class="form-label" for="comment-text">Mensaje</label>
+                  <textarea class="form-control form-control-lg" id="comment-text" rows="4" placeholder="Mensaje" required=""></textarea>
+                  <div class="invalid-feedback">Please type your comment.</div>
+                </div>
+                <div class="col-12 text-center pt-2">
+                  <button class="btn btn-lg btn-primary rounded-pill" type="submit">Enviar mensaje</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <!-- Carousel custom controls-->
-        <div class="tns-carousel-controls pt-2 mt-4" id="carousel-controls">
-          <button class="me-3" type="button"><i class="fi-chevron-left fs-xs"></i></button>
-          <button type="button"><i class="fi-chevron-right fs-xs"></i></button>
-        </div>
-      </section>
+      </div>
      
       <!-- Blog: Latest posts-->
     
